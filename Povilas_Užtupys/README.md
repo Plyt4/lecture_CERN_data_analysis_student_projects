@@ -8,13 +8,13 @@ ROOT-converted datasets. The analysis demonstrates reconstruction of:
 -   W → lν (transverse mass)
 -   Jet kinematics (e.g., leading jet pT)
 
-Directory Structure: . ├── analysis_run.py # Main script to run analysis
+Directory Structure:
+├── analysis_run.py # Main script to run analysis
 ├── analysis_utils.py # Physics object builders and selection helpers
-├── README.txt # This file └── data/ # Place your ROOT or parquet files
-here
+├── README.txt # This file 
+└── data/ # Place your ROOT files here
 
 Requirements: pip install awkward uproot vector matplotlib numpy
-(Optional: pip install numba)
 
 Input Dataset: The analysis expects a ROOT file containing lepton, jet,
 and MET branches such as: lep_pt, lep_eta, lep_phi, lep_charge,
@@ -22,15 +22,25 @@ lep_type, jet_pt, jet_eta, jet_phi, met_px, met_py, met_et
 
 Running the Analysis: python analysis_run.py
 
-Selections and Reconstruction: - Z → ll: exactly two same-flavour,
-opposite-sign leptons - W → lν: exactly one lepton, MT computed using
-standard formula - Jet analysis: leading jet pT
+Selections and Reconstruction: 
+- Z → ll: exactly two same-flavour,
+opposite-sign leptons;
+- W → lν: exactly one lepton, MT computed using
+standard formula; 
+- Jet analysis: leading jet pT;
 
-Key Functions: build_electrons, build_muons, build_jets, build_met
-select_two_opposite_sign_same_flavour select_one_lepton reconstruct_z
-transverse_mass plot_hist
+Key Functions: 
+- build_electrons; 
+- build_muons;
+- build_jets;
+- build_met;
+- select_two_opposite_sign_same_flavour; 
+- select_one_lepton; 
+- z_mass_numpy;
+- transverse_mass; 
+- plot_hist.
 
-Output: Histograms for Z mass, W transverse mass, and leading jet pT.
+Output: Histograms for Z invariant mass, W transverse mass, and leading jet pT.
 
 Customization: Modify lepton ID, jet cuts, MET thresholds, or event
 masks in analysis_utils.py.
